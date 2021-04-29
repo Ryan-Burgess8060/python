@@ -6,7 +6,7 @@ import time
 from bs4 import BeautifulSoup
 
 # Open the URL and get the response
-url = "https://christopherburgess.xyz/WebSecurity"
+url = "https://christopherburgess.xyz/WebSecurity/"
 print("Opening " + url)
 start = time.clock()
 response = urllib.urlopen(url)
@@ -20,8 +20,8 @@ if response.getcode() >= 200 and response.getcode() < 300:
 		print("Redirected to " + response.geturl())
 	html_doc = response.read()
 	soup = BeautifulSoup(html_doc, 'html.parser')
-	for link in soup.find_all('form'): # It helps to find all anchor tag's
-		print(link.get('method'))
+	for link in soup.find_all('a'): # It helps to find all anchor tag's
+		print(link.get('href'))
 # Note: urllib.urlopen automatically follows redirects (codes 300-399)
 elif response.getcode() >= 400 and response.getcode() < 500:
 	print(str(response.getcode()) + " - Client error")
