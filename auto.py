@@ -21,7 +21,7 @@ if response.getcode() >= 200 and response.getcode() < 300:
 	html_doc = response.read()
 	soup = BeautifulSoup(html_doc, 'html.parser')
 	for link in soup.find_all('h3'): # It helps to find all anchor tag's
-		print(link.get('$arr["Username"]'))
+		print(link.get('Username'))
 # Note: urllib.urlopen automatically follows redirects (codes 300-399)
 elif response.getcode() >= 400 and response.getcode() < 500:
 	print(str(response.getcode()) + " - Client error")
@@ -133,7 +133,7 @@ if response.getcode() >= 200 and response.getcode() < 300:
 	html_doc = response.read()
 	soup = BeautifulSoup(html_doc, 'html.parser')
 	for link in soup.find_all('h3'): # It helps to find all anchor tag's
-		print(link.get('$arr["Username"]'))
+		print(link.get('Username'))
 # Note: urllib.urlopen automatically follows redirects (codes 300-399)
 elif response.getcode() >= 400 and response.getcode() < 500:
 	print(str(response.getcode()) + " - Client error")
